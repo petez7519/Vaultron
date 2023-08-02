@@ -18,6 +18,8 @@ commands:
       - run:
           name: Auto-authenticate with Vault
           command: |
+            mkdir /home/circleci/.circleci
+            mkdir /home/circleci/.circleci/vault
             # Write the CircleCI provided value to a file read by Vault
             echo $CIRCLE_OIDC_TOKEN > .circleci/vault/token.json
             # Substitute the env vars in our context to render the Vault config file
@@ -33,7 +35,7 @@ commands:
 jobs:
   setup-vault-and-load-secrets:
     docker: 
-      - image: cimg/base:2023.01
+      - image: cimg/base:2023.07
     steps:
       - checkout
       - install-vault
