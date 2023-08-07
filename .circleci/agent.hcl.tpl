@@ -11,7 +11,7 @@ auto_auth {
     exit_on_err = true
     config = {
       role = "${VAULT_ROLE}"
-      path = "/home/circleci/.circleci/vault/token.json"
+      path = "~/.circleci/vault/token.json"
       remove_jwt_after_reading = false
     }
   }
